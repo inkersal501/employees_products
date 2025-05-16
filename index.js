@@ -18,23 +18,27 @@ mongoose
   .then(() => console.log("DB Connected"))
   .catch((error) => console.log("Error connecting to DB:", error));
 
-  app.use((req, res, next) => { 
-        console.log(`${req.method} ${req.originalUrl}`); 
-        next();
-    });
+app.use((req, res, next) => { 
+      console.log(`${req.method} ${req.originalUrl}`); 
+      next();
+});
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 });
 
-
+//fetch Employees Products by Employee name
 app.get("/search/:name", async (req, res) => {
   const {name} = req.params;
-  if(name!="") { 
-  const employeeProducts = await fetchData(name);
-    if(employeeProducts.length>0)
-      res.status(200).send(employeeProducts);
-    else
-      res.status(500).send({message: "No employee found."});
+
+  if(name!="") {  
+
+    const employeeProducts = await fetchData(name); 
+      if(employeeProducts.length>0)
+        res.status(200).send(employeeProducts);
+      else
+        res.status(500).send({message: "No employee found."});
+
   }else{
     res.status(500).send({message: "send the employee name."});
   }
