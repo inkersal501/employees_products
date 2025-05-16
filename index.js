@@ -18,6 +18,10 @@ mongoose
   .then(() => console.log("DB Connected"))
   .catch((error) => console.log("Error connecting to DB:", error));
 
+  app.use((req, res, next) => { 
+        console.log(`${req.method} ${req.originalUrl}`); 
+        next();
+    });
 app.get('/', (req, res) => {
   res.send('Hello World!')
 });
