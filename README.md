@@ -1,13 +1,13 @@
-**Task: **
+## Task:
 create two databases and an API that fetches data from both and returns a combined response. 
 The setup will include:
 1. Two Databases:
 a) employees_db: Stores employee details.
 b) products_db: Stores product details.
-**Node.js application to Fetch Employee with product details by employee name via REST API**
+## Node.js application to Fetch Employee with product details by employee name via REST API
 
-**REST API: **
-**https://employees-products.onrender.com/search/employeeName**
+## REST API:
+## https://employees-products.onrender.com/search/employeeName
 
 Example names to tru: Inkersal, Nisha, Giri
 
