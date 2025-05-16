@@ -25,11 +25,16 @@ app.get('/', (req, res) => {
 
 app.get("/search/:name", async (req, res) => {
   const {name} = req.params;
+  if(name!="") { 
   const employeeProducts = await fetchData(name);
-  if(employeeProducts.length>0)
-    res.status(200).send(employeeProducts);
-  else
-    res.status(500).send({message: "No employee found."});
+    if(employeeProducts.length>0)
+      res.status(200).send(employeeProducts);
+    else
+      res.status(500).send({message: "No employee found."});
+  }else{
+    res.status(500).send({message: "send the employee name."});
+  }
+  
 });
 
 app.listen(PORT, () => {
